@@ -66,6 +66,11 @@
 			justify-content: center;
 			flex-wrap: wrap;
 		}
+
+		.keyword {
+			font-weight: bold;
+			color: color-mix(in oklab, blue, violet);
+		}
 		
 		.string {
 			color: color-mix(in srgb, gold 60%, white);
@@ -183,9 +188,12 @@
 					<code class="inline-code">=></code> is also valid.
 				</li>
 				<li>
-					"Identifiers" (Strings composed solely of alphanumeric characters
-					(NOT beginning with a number) and <code class="inline-code">_</code>)
-					can be unquoted;
+					Strings composed solely of alphanumeric characters
+					(NOT beginning with a number) and <code class="inline-code">_</code>
+					can be unquoted (though some reserved names &ndash;
+					like <code class="inline-code keyword">null</code>
+					and <code class="inline-code keyword">undefined</code>
+					&ndash; will get special treatment, when as values);
 				</li>
 				<li>
 					Native binary data support
