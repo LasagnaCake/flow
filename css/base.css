@@ -20,7 +20,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 body {
-	background-color: color-mix(in srgb, violet, white 80%);
+	background-color: color-mix(in srgb, violet, white 85%);
 }
 
 code {
