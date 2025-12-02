@@ -1,5 +1,5 @@
-@import url("res/font/ibm-plex-sans/css/ibm-plex-sans-all.css");
-@import url("res/font/ibm-plex-mono/css/ibm-plex-mono-all.css");
+@import url("../res/font/ibm-plex-sans/css/ibm-plex-sans-all.css");
+@import url("../res/font/ibm-plex-mono/css/ibm-plex-mono-all.css");
 
 :root {
 	font-family: "IBM Plex Sans";
