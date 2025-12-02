@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Syntax</title>
+	<link rel="stylesheet" href="../css/base.css"/>
+	<link rel="stylesheet" href="../css/syntax.css"/>
+</head>
+<body>
+	<div class="nav">
+		<a class="nav-link" href="../index.html">The Language</a>
+		<a class="nav-link" href="">The Syntax</a>
+	</div>
+	
+	<div class="app">
+		<div class="card center-text">
+			<h1>FLOW Syntax</h1>
+			<em>"I sure love text!"</em>
+		</div>
+
+		<div class="card center-text flex horizontal center">
+			<a class="mini button action" href="#overview">Overview</a>
+			<a class="mini button action" href="#basic-structure">Basic Structure</a>
+			<a class="mini button action" href="#reserved-keywords">Reserved Keywords</a>
+		</div>
+
+		<div class="card center-text">
+			<h2 id="overview">Overview</h2>
+			Carries over your basic JSON syntax.
+		</div>
+
+		<div class="card">
+			<h2 id="basic-structure">Basic structure</h2>
+			<ul>
+				<li>Numbers: Supports both integers and floating-point numbers.</li>
+				<li>
+					Strings: Delimited with
+					<code class="inline-code string">"</code>
+					or <code class="inline-code string">'</code>.
+					If string only contains valid characters
+					(alphanumeric characters or underscore),
+					and doesn't begin with a number,
+					<strong>delimiters can be omitted</strong>.
+				</li>
+				<li>Arrays: Formatted as <code class="inline-code">[ <span class="unknown-value">&lt;element&gt;</span> <span class="comment">...</span> ]</code>. Separators are optional.</li>
+				<li>Objects: Formatted as <code class="inline-code">{ <span class="tag">&lt;key&gt;</span> <span class="unknown-value">&lt;value&gt;</span> <span class="comment">...</span> }</code>. Separators and designators are optional.</li>
+				<li>Binary: See <a href="../index.html#additions-encoded-entities">Encoded Entities</a>.</li>
+			</ul>
+		</div>
+		
+		<div class="card">
+			<h2 id="reserved-keywords">Reserved keywords</h2>
+			<ul>
+				<li><code class="inline-code keyword">undefined</code>: Represents an <strong>undefined</strong> value.</li>
+				<li><code class="inline-code keyword">null</code>: Represents a <strong>null</strong> value.</li>
+				<li><code class="inline-code keyword">true</code>: Represents a boolean <strong>true</strong> value.</li>
+				<li><code class="inline-code keyword">false</code>: Represents a boolean <strong>false</strong> value.</li>
+			</ul>
+		</div>
+</body>
+</html>

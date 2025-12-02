@@ -1,0 +1,33 @@
+.keyword {
+	font-weight: bold;
+	color: color-mix(in oklab, blue, azure);
+}
+
+.string {
+	color: color-mix(in srgb, gold 60%, white);
+}
+
+.tag {
+	color: color-mix(in srgb, orange 75%, white);
+}
+
+.number {
+	color: violet;
+}
+
+.binary {
+	color: color-mix(in oklch, magenta, cyan);
+}
+
+.comment {
+	color: color-mix(in srgb, gray 60%, lightgray);
+}
+
+.delimiter {
+	color: color-mix(in srgb, red 60%, pink);
+	font-weight: bold;
+}
+
+.unknown-value {
+	color: color-mix(in oklch, magenta, pink);
+}

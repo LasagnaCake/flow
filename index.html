@@ -4,115 +4,34 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>FLOW</title>
-	<style>
-		@import url("res/font/ibm-plex-sans/css/ibm-plex-sans-all.css");
-		@import url("res/font/ibm-plex-mono/css/ibm-plex-mono-all.css");
-		
-		:root {
-			font-family: "IBM Plex Sans";
-			font-size: 14pt;
-		}
-
-		.center-text, h1, h2, h3, h4, h5, h6 {
-			margin: 1.2em 0.6em;
-			text-align: center;
-		}
-
-		code {
-			font-family: "IBM Plex Mono";
-			white-space: pre-line;
-		}
-
-		p {
-			padding: 0.3em 0.3em;
-		}
-
-		.card {
-			max-width: 600px;
-			width: 100%;
-			padding: 0.6em 0.3em;
-			border-radius: 0.6em;
-			box-shadow: 0px 6px 15px color-mix(in srgb, gray 75%, lightgray);
-			margin: 1.2em 0.3em;
-		}
-
-		.code-block {
-			color: white;
-			margin: 0.6em 0.3em;
-			background-color: color-mix(in srgb, lightgray, black 80%);
-			padding: 0.6em 0.3em;
-			border-radius: 0.6em;
-		}
-
-		.inline-code {
-			color: white;
-			margin: 0em 0.2em;
-			background-color: color-mix(in srgb, lightgray, black 80%);
-			padding: 0.1em 0.2em;
-			border-radius: 0.3em;
-		}
-		
-		.json::before {
-			content: "{"
-		}
-		
-		.json::after {
-			content: "}"
-		}
-
-		.app {
-			max-width: 800px;
-			display: flex;
-			justify-content: center;
-			flex-wrap: wrap;
-		}
-
-		.keyword {
-			font-weight: bold;
-			color: color-mix(in oklab, blue, violet);
-		}
-		
-		.string {
-			color: color-mix(in srgb, gold 60%, white);
-		}
-
-		.tag {
-			color: color-mix(in srgb, orange 75%, white);
-		}
-
-		.number {
-			color: violet;
-		}
-
-		.binary {
-			color: color-mix(in oklch, magenta, cyan);
-		}
-
-		.comment {
-			color: color-mix(in srgb, gray 60%, lightgray);
-		}
-
-		.delimiter {
-			color: color-mix(in srgb, red 60%, pink);
-			font-weight: bold;
-		}
-
-		body {
-			display: flex;
-			justify-content: center;
-			flex-wrap: wrap;
-		}
-	</style>
+	<link rel="stylesheet" href="css/base.css"/>
+	<link rel="stylesheet" href="css/syntax.css"/>
 </head>
 <body>
+	<div class="nav">
+		<a class="nav-link" href="">The Language</a>
+		<a class="nav-link" href="pages/syntax.html">The Syntax</a>
+	</div>
+
 	<div class="app">
-		<div class="center-text card">
+		<div class="card center-text">
 			<h1>FLOW: Fast Lazy Object Writing</h1>
 			<em>"Lazy objects for lazy people"</em>
 		</div>
+		
+		<div class="card center-text flex horizontal center">
+			<a class="mini button action" href="#what-is-flow">What is FLOW?</a>
+			<a class="mini button action" href="#simplicity-meets-functionality">Simplicity Meets Functionality</a>
+			<a class="mini button action" href="#additions">Additions</a>
+			<a class="mini button action" href="#libraries-that-use-flow">Libraries That Use FLOW</a>
+		</div>
+		
+		<div class="card center-text flex horizontal center">
+			<a class="mini button action" href="pages/syntax.html">The syntax</a>
+		</div>
 	
 		<div class="card">
-			<h2>What is FLOW?</h2>
+			<h2 id="what-is-flow">What is FLOW?</h2>
 			<p>
 				JSON, but simple(r).
 			</p>
@@ -172,7 +91,7 @@
 		</div>
 		
 		<div class="card">
-			<h2>Simplicity Meets Functionality</h2>
+			<h2 id="simplicity-meets-functionality">Simplicity Meets Functionality</h2>
 			<p>
 				The goal of FLOW is simple: Make JSON easier to write,
 				while also maintaining backwards compatibility with it,
@@ -183,7 +102,7 @@
 			</p>
 			<ul>
 				<li>
-					Delimiters (<code class="inline-code del">:</code> and <code class="inline-code">,</code>)
+					Delimiters (<code class="inline-code">:</code> and <code class="inline-code">,</code>)
 					are optional - in fact, they can be <em>any (non-identifier or reserved) character,
 					in any amount!</em>
 				</li>
@@ -192,23 +111,27 @@
 					(NOT beginning with a number) and underscore
 					(<code class="inline-code">_</code>)
 					can be unquoted (though some reserved names -
-					like <code class="inline-code keyword">null</code>
-					and <code class="inline-code keyword">undefined</code>
+					like <code class="inline-code keyword">null</code>,
+					<code class="inline-code keyword">undefined</code>,
+					etc.
 					- will get special treatment, when as values);
 				</li>
 				<li>
 					Native binary data support
-					(via <a href="#encoded-entities">Encoded Entities</a>);
+					(via <a href="#additions-encoded-entities">Encoded Entities</a>);
 				</li>
 				<li>
 					Line and block comment support;
+				</li>
+				<li>
+					Integers and floating-point numbers are separate types;
 				</li>
 			</ul>
 		</div>
 
 		<div class="card">
-			<h2>Additions</h2>
-			<h3 id="encoded-entities">Encoded Entities</h3>
+			<h2 id="additions">Additions</h2>
+			<h3 id="additions-encoded-entities">Encoded Entities</h3>
 			<p>
 				Encoded Entities are the way to store binary data in a FLOW file, in an editable way.
 			</p>
@@ -235,14 +158,14 @@
 				While less space-efficient than a proper binary encoding,
 				this allows it to be URL-safe and human-editable.
 			</p>
-			<h3>Line &amp; Block Comments</h3>
+			<h3 id="additions-line-and-block-comments">Line &amp; Block Comments</h3>
 			<p>
 				Your classic line (<code class="inline-code comment">//</code>) and block (<code class="inline-code comment">/* ... */</code>) comments. Nothing groundbreaking.
 			</p>
 		</div>
 		
 		<div class="card">
-			<h2>Libraries That Use FLOW</h2>
+			<h2 id="libraries-that-use-flow">Libraries That Use FLOW</h2>
 			<ul>
 				<li>
 					<a href="https://github.com/lasagnacake/makai">Makai</a>: Native, seamless support
