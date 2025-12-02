@@ -6,6 +6,7 @@
 	<title>Document</title>
 	<style>
 		@import url("res/font/ibm-plex-sans/css/ibm-plex-sans-all.css");
+		@import url("res/font/ibm-plex-mono/css/ibm-plex-mono-all.css");
 		
 		:root {
 			font-family: "IBM Plex Sans";
@@ -18,6 +19,7 @@
 		}
 
 		code {
+			font-family: "IBM Plex Mono";
 			white-space: pre-line;
 		}
 
@@ -35,10 +37,19 @@
 		}
 
 		.code-block {
+			color: white;
 			margin: 0.6em 0.3em;
-			background-color: color-mix(in srgb, lightgray, white 60%);
+			background-color: color-mix(in srgb, lightgray, black 80%);
 			padding: 0.6em 0.3em;
 			border-radius: 0.6em;
+		}
+
+		.inline-code {
+			color: white;
+			margin: 0em 0.2em;
+			background-color: color-mix(in srgb, lightgray, black 80%);
+			padding: 0.1em 0.2em;
+			border-radius: 0.3em;
 		}
 		
 		.json::before {
@@ -54,6 +65,31 @@
 			display: flex;
 			justify-content: center;
 			flex-wrap: wrap;
+		}
+		
+		.string {
+			color: cyan;
+		}
+
+		.tag {
+			color: orange;
+		}
+
+		.number {
+			color: color-mix(in srgb, magenta, pink);
+		}
+
+		.binary {
+			color: color-mix(in oklch, magenta, cyan);
+		}
+
+		.comment {
+			color: color-mix(in srgb, gray, lightgray);
+		}
+
+		.delimiter {
+			color: red;
+			font-weight: bold;
 		}
 
 		body {
@@ -80,15 +116,16 @@
 			</p>
 			<p class="code-block">
 				<code class="json">
-						&nbsp;&nbsp;"orders": [
+						&nbsp;&nbsp;<span class="tag">"orders"</span><span class="delimiter">:</span> [
 						&nbsp;&nbsp;&nbsp;&nbsp;{
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"order_id": 0,
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"price": 26.99,
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"customer_id": 0,
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"items": [
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">"order_id"</span><span class="delimiter">:</span> <span class="number">0</span>,
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">"seller_name"</span><span class="delimiter">:</span> <span class="string">"Jane Doe"</span>,
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">"price"</span><span class="delimiter">:</span> <span class="number">26.99</span>,
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">"customer_id"</span><span class="delimiter">:</span> <span class="number">0</span>,
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">"items"</span><span class="delimiter">:</span> [
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]
 						&nbsp;&nbsp;&nbsp;&nbsp;}
-						&nbsp;&nbsp;],
+						&nbsp;&nbsp;]
 				</code>
 			</p>
 			<p>
@@ -96,29 +133,30 @@
 			</p>
 			<p class="code-block">
 				<code class="json">
-						&nbsp;&nbsp;"orders": [
-						&nbsp;&nbsp;&nbsp;&nbsp;{
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"order_id": 0,
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"price": 26.99,
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"customer_id": 0,
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"items": [
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],
-						&nbsp;&nbsp;&nbsp;&nbsp;}
-						&nbsp;&nbsp;],
-				</code>
+					&nbsp;&nbsp;<span class="tag">"orders"</span><span class="delimiter">:</span> [
+					&nbsp;&nbsp;&nbsp;&nbsp;{
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">"order_id"</span><span class="delimiter">:</span> <span class="number">0</span>,
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">"seller_name"</span><span class="delimiter">:</span> <span class="string">"Jane Doe"</span>,
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">"price"</span><span class="delimiter">:</span> <span class="number">26.99</span>,
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">"customer_id"</span><span class="delimiter">:</span> <span class="number">0</span>,
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">"items"</span><span class="delimiter">:</span> [
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]
+					&nbsp;&nbsp;&nbsp;&nbsp;}
+					&nbsp;&nbsp;]
+			</code>
 			</p>
 			<p>
 				But wait &ndash; it can be made <em>even simpler!</em> Look now:
 			</p>
 			<p class="code-block">
 				<code class="json">
-						&nbsp;&nbsp;orders [
+						&nbsp;&nbsp;<span class="tag">orders</span> [
 						&nbsp;&nbsp;&nbsp;&nbsp;{
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;order_id 0
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;price 26.99
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;customer_id 0
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;items [
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">order_id</span> <span class="number">0</span>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">seller_name</span> <span class="string">"Jane Doe"</span>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">price</span> <span class="number">26.99</span>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">customer_id</span> <span class="number">0</span>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">items</span> []
 						&nbsp;&nbsp;&nbsp;&nbsp;}
 						&nbsp;&nbsp;]
 				</code>
@@ -140,25 +178,26 @@
 			</p>
 			<ul>
 				<li>
-					Delimiters (<code>:</code> and <code>,</code>) are optional
+					Delimiters (<code class="inline-code">:</code> and <code class="inline-code">,</code>)
+					are optional &ndash; in fact, they can be <em>any (non-identifier or reserved) character!</em> <code class="inline-code">=></code> is also valid.
 				</li>
 				<li>
 					"Identifiers" (Strings composed solely of alphanumeric characters
-					(NOT beginning with a number) and underscore (<code>_</code>))
-					can be unquoted
+					(NOT beginning with a number) and <code class="inline-code">_</code>)
+					can be unquoted;
 				</li>
 				<li>
 					Native binary data support
-					(via <a href="#encoded-entities">Encoded Entities</a>)
+					(via <a href="#encoded-entities">Encoded Entities</a>);
 				</li>
 				<li>
-					Line and block comment support
+					Line and block comment support;
 				</li>
 			</ul>
 		</div>
 
 		<div class="card">
-			<h2>Additions over JSON</h2>
+			<h2>Additions</h2>
 			<h3 id="encoded-entities">Encoded Entities</h3>
 			<p>
 				Encoded Entities are the way to store binary data in a FLOW file, in an editable way.
@@ -169,19 +208,23 @@
 			<p>
 				Specified as follows:
 			</p>
-			<p class="code-block"><code>! &lt;base&gt; "&lt;content&gt;"</code></p>
+			<p class="code-block"><code><span class="delimiter">!</span> <span class="number">&lt;base&gt;</span> <span class="string">"&lt;content&gt;"</span></code></p>
 			<p>
-				Where <code>&lt;base&gt;</code> is the base of the string,
-				and <code>&lt;content&gt;</code> is the encoded content.
+				Where <code class="inline-code number">&lt;base&gt;</code> is the base of the string,
+				and <code class="inline-code string">&lt;content&gt;</code> is the encoded content.
 				Spaces and separators are optional, but not recommended.
 			</p>
 			<p>
 				Example of the ASCII text "Hellow, FLOW!" stored in a base-64 string:
 			</p>
-			<p class="code-block"><code>!64"SGVsbG8sIEZMT1ch"</code></p>
+			<p class="code-block"><code class="binary"><strong>!</strong><span class="number">64</span>"SGVsbG8sIEZMT1ch"</code></p>
 			<p>
 				While less space-efficient than a proper binary encoding,
 				this allows it to be URL-safe and human-editable.
+			</p>
+			<h3>Line &amp; Block Comments</h3>
+			<p>
+				Your classic line (<code class="inline-code comment">//</code>) and block (<code class="inline-code comment">/* ... */</code>) comments. Nothing groundbreaking.
 			</p>
 		</div>
 		
