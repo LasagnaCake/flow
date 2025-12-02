@@ -33,6 +33,7 @@ p {
 }
 
 .nav {
+	z-index: 10;
 	position: fixed;
 	background-color: white;
 	padding: 1.2em 1.2em;
