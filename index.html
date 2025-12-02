@@ -12,6 +12,7 @@
 		}
 
 		.center-text, h1, h2, h3, h4, h5, h6 {
+			margin: 1.2em 0.6em;
 			text-align: center;
 		}
 
@@ -24,7 +25,8 @@
 		}
 
 		.card {
-			max-width: 800px;
+			max-width: 600px;
+			width: 100%;
 			padding: 0.6em 0.3em;
 			border-radius: 0.6em;
 			box-shadow: 0px 2.5px 5px lightgray;
@@ -32,6 +34,7 @@
 		}
 
 		.code-block {
+			margin: 0.6em 0.3em;
 			background-color: color-mix(in srgb, lightgray, white 60%);
 			padding: 0.6em 0.3em;
 			border-radius: 0.6em;
@@ -44,105 +47,142 @@
 		.json::after {
 			content: "}"
 		}
+
+		.app {
+			max-width: 800px;
+			display: flex;
+			justify-content: center;
+			flex-wrap: wrap;
+		}
+
+		body {
+			display: flex;
+			justify-content: center;
+			flex-wrap: wrap;
+		}
 	</style>
 </head>
 <body>
-	<div class="center-text card">
-		<h1>FLOW: Fast Lazy Object Writing</h1>
-		<em>"Lazy objects for lazy people"</em>
-	</div>
-
-	<div class="card">
-		<h2>1. What is flow?</h2>
-		<p>
-			JSON, but simple(r).
-		</p>
-		<p>
-			Take the following JSON example:
-		</p>
-		<p class="code-block">
-			<code class="json">
-					&nbsp;&nbsp;"orders": [
-					&nbsp;&nbsp;&nbsp;&nbsp;{
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"order_id": 0,
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"price": 26.99,
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"customer_id": 0,
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"items": [
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],
-					&nbsp;&nbsp;&nbsp;&nbsp;}
-					&nbsp;&nbsp;],
-			</code>
-		</p>
-		<p>
-			Here's the same, in FLOW:
-		</p>
-		<p class="code-block">
-			<code class="json">
-					&nbsp;&nbsp;"orders": [
-					&nbsp;&nbsp;&nbsp;&nbsp;{
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"order_id": 0,
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"price": 26.99,
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"customer_id": 0,
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"items": [
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],
-					&nbsp;&nbsp;&nbsp;&nbsp;}
-					&nbsp;&nbsp;],
-			</code>
-		</p>
-		<p>
-			But wait &ndash; it can be made <em>even simpler!</em> Look now:
-		</p>
-		<p class="code-block">
-			<code class="json">
-					&nbsp;&nbsp;orders [
-					&nbsp;&nbsp;&nbsp;&nbsp;{
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;order_id 0
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;price 26.99
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;customer_id 0
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;items [
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]
-					&nbsp;&nbsp;&nbsp;&nbsp;}
-					&nbsp;&nbsp;]
-			</code>
-		</p>
-		<p>
-			Much better, isn't it?
-		</p>
-	</div>
+	<div class="app">
+		<div class="center-text card">
+			<h1>FLOW: Fast Lazy Object Writing</h1>
+			<em>"Lazy objects for lazy people"</em>
+		</div>
 	
-	<div class="card">
-		<h2>Simplicity meets functionality</h2>
-		<p>
-			The goal of FLOW is simple &ndash; Make JSON easier to write, while also maintaining backwards compatibility with it.
-		</p>
-		<p>
-			As such, FLOW has a few differences from its parent:
-		</p>
-		<ul>
-			<li>
-				Delimiters (<code>:</code>, <code>,</code>) are optional
-			</li>
-			<li>
-				"Identifiers" (Strings composed solely of alphanumeric characters (NOT beginning with a number) and underscore (<code>_</code>)) can be unquoted
-			</li>
-			<li>
-				Native binary data support (via <a href="#encoded-entities">Encoded Entities</a>)
-			</li>
-			<li>
-				Line and block comment support
-			</li>
-		</ul>
-	</div>
-	<div class="card">
-		<h2>Additions over JSON</h2>
-		<h3 id="encoded-entities">Encoded Entities</h3>
-		<p>
-			Encoded Entities are the way to store binary data in a FLOW file, in an editable way.
-		</p>
-		<p>
-			Specified as follows:
-		</p>
-		<p class="code-block"><code>!&lt;BASE&gt;!"&lt;CONTENT&gt;"</code></p>
+		<div class="card">
+			<h2>1. What is flow?</h2>
+			<p>
+				JSON, but simple(r).
+			</p>
+			<p>
+				Take the following JSON example:
+			</p>
+			<p class="code-block">
+				<code class="json">
+						&nbsp;&nbsp;"orders": [
+						&nbsp;&nbsp;&nbsp;&nbsp;{
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"order_id": 0,
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"price": 26.99,
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"customer_id": 0,
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"items": [
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],
+						&nbsp;&nbsp;&nbsp;&nbsp;}
+						&nbsp;&nbsp;],
+				</code>
+			</p>
+			<p>
+				Here's the same, in FLOW:
+			</p>
+			<p class="code-block">
+				<code class="json">
+						&nbsp;&nbsp;"orders": [
+						&nbsp;&nbsp;&nbsp;&nbsp;{
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"order_id": 0,
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"price": 26.99,
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"customer_id": 0,
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"items": [
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],
+						&nbsp;&nbsp;&nbsp;&nbsp;}
+						&nbsp;&nbsp;],
+				</code>
+			</p>
+			<p>
+				But wait &ndash; it can be made <em>even simpler!</em> Look now:
+			</p>
+			<p class="code-block">
+				<code class="json">
+						&nbsp;&nbsp;orders [
+						&nbsp;&nbsp;&nbsp;&nbsp;{
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;order_id 0
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;price 26.99
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;customer_id 0
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;items [
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]
+						&nbsp;&nbsp;&nbsp;&nbsp;}
+						&nbsp;&nbsp;]
+				</code>
+			</p>
+			<p>
+				Much better, isn't it?
+			</p>
+		</div>
+		
+		<div class="card">
+			<h2>Simplicity Meets Functionality</h2>
+			<p>
+				The goal of FLOW is simple &ndash; Make JSON easier to write,
+				while also maintaining backwards compatibility with it,
+				and adding along some niceties.
+			</p>
+			<p>
+				As such, FLOW has a few differences from its parent:
+			</p>
+			<ul>
+				<li>
+					Delimiters (<code>:</code> and <code>,</code>) are optional
+				</li>
+				<li>
+					"Identifiers" (Strings composed solely of alphanumeric characters
+					(NOT beginning with a number) and underscore (<code>_</code>))
+					can be unquoted
+				</li>
+				<li>
+					Native binary data support
+					(via <a href="#encoded-entities">Encoded Entities</a>)
+				</li>
+				<li>
+					Line and block comment support
+				</li>
+			</ul>
+		</div>
+
+		<div class="card">
+			<h2>Additions over JSON</h2>
+			<h3 id="encoded-entities">Encoded Entities</h3>
+			<p>
+				Encoded Entities are the way to store binary data in a FLOW file, in an editable way.
+			</p>
+			<p>
+				Essentially, it is a base-N encoded string, with N being a power of 2.
+			</p>
+			<p>
+				Specified as follows:
+			</p>
+			<p class="code-block"><code>! &lt;base&gt; "&lt;content&gt;"</code></p>
+			<p>
+				Where <code>&lt;base&gt;</code> is the base of the string,
+				and <code>&lt;content&gt;</code> is the encoded content.
+				Spaces and separators are optional, but not recommended.
+			</p>
+			<p>
+				Example of the ASCII text "Hellow, FLOW!" stored in a base-64 string:
+			</p>
+			<p class="code-block"><code>!64"SGVsbG8sIEZMT1ch"</code></p>
+			<p>
+				While less space-efficient than a proper binary encoding,
+				this allows it to be URL-safe and human-editable.
+			</p>
+		</div>
 	</div>
 </body>
 </html>
