@@ -68,15 +68,15 @@
 		}
 		
 		.string {
-			color: cyan;
+			color: color-mix(in srgb, gold 60%, white);
 		}
 
 		.tag {
-			color: orange;
+			color: color-mix(in srgb, orange 75%, white);
 		}
 
 		.number {
-			color: color-mix(in srgb, magenta, pink);
+			color: violet;
 		}
 
 		.binary {
@@ -88,7 +88,7 @@
 		}
 
 		.delimiter {
-			color: red;
+			color: color-mix(in srgb, red 60%, pink);
 			font-weight: bold;
 		}
 
@@ -118,10 +118,10 @@
 				<code class="json">
 						&nbsp;&nbsp;<span class="tag">"orders"</span><span class="delimiter">:</span> [
 						&nbsp;&nbsp;&nbsp;&nbsp;{
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">"order_id"</span><span class="delimiter">:</span> <span class="number">0</span>,
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">"seller_name"</span><span class="delimiter">:</span> <span class="string">"Jane Doe"</span>,
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">"price"</span><span class="delimiter">:</span> <span class="number">26.99</span>,
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">"customer_id"</span><span class="delimiter">:</span> <span class="number">0</span>,
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">"order_id"</span><span class="delimiter">:</span> <span class="number">0</span><span class="delimiter">,</span>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">"seller_name"</span><span class="delimiter">:</span> <span class="string">"Jane Doe"</span><span class="delimiter">,</span>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">"price"</span><span class="delimiter">:</span> <span class="number">26.99</span><span class="delimiter">,</span>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">"customer_id"</span><span class="delimiter">:</span> <span class="number">0</span><span class="delimiter">,</span>
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">"items"</span><span class="delimiter">:</span> [
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]
 						&nbsp;&nbsp;&nbsp;&nbsp;}
@@ -135,10 +135,10 @@
 				<code class="json">
 					&nbsp;&nbsp;<span class="tag">"orders"</span><span class="delimiter">:</span> [
 					&nbsp;&nbsp;&nbsp;&nbsp;{
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">"order_id"</span><span class="delimiter">:</span> <span class="number">0</span>,
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">"seller_name"</span><span class="delimiter">:</span> <span class="string">"Jane Doe"</span>,
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">"price"</span><span class="delimiter">:</span> <span class="number">26.99</span>,
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">"customer_id"</span><span class="delimiter">:</span> <span class="number">0</span>,
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">"order_id"</span><span class="delimiter">:</span> <span class="number">0</span><span class="delimiter">,</span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">"seller_name"</span><span class="delimiter">:</span> <span class="string">"Jane Doe"</span><span class="delimiter">,</span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">"price"</span><span class="delimiter">:</span> <span class="number">26.99</span><span class="delimiter">,</span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">"customer_id"</span><span class="delimiter">:</span> <span class="number">0</span><span class="delimiter">,</span>
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">"items"</span><span class="delimiter">:</span> [
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]
 					&nbsp;&nbsp;&nbsp;&nbsp;}
@@ -162,7 +162,7 @@
 				</code>
 			</p>
 			<p>
-				Much better, isn't it?
+				Much simpler to write and read.
 			</p>
 		</div>
 		
