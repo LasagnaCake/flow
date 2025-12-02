@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		@import url("res/font/ibm-plex-sans/css/ibm-plex-sans-all.css");
+		
+		:root {
+			font-family: "IBM Plex Sans";
+		}
+
+		.center-text, h1, h2, h3, h4, h5, h6 {
+			text-align: center;
+		}
+
+		code {
+			white-space: pre-line;
+		}
+
+		.code-block {
+			background-color: lightgray;
+		}
+		
+		.json::before {
+			content: "{"
+		}
+		
+		.json::after {
+			content: "}"
+		}
+	</style>
+</head>
+<body>
+	<div class="center-text">
+		<h1>FLOW: Fast Lazy Object Writing</h1>
+		<em>"Lazy objects for lazy people"</em>
+	</div>
+	<h2>1. What is flow?</h2>
+	<p>
+		JSON, but simple(r).
+	</p>
+	<p>
+		Take the following JSON example:
+	</p>
+	<p class="code-block">
+		<code class="json">
+				&nbsp;&nbsp;"orders": [
+				&nbsp;&nbsp;&nbsp;&nbsp;{
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"order_id": 0,
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"price": 26.99,
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"customer_id": 0,
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"items": [
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],
+				&nbsp;&nbsp;&nbsp;&nbsp;}
+				&nbsp;&nbsp;],
+		</code>
+	</p>
+	<p>
+		Here's the same, in FLOW:
+	</p>
+	<p class="code-block">
+		<code class="json">
+				&nbsp;&nbsp;"orders": [
+				&nbsp;&nbsp;&nbsp;&nbsp;{
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"order_id": 0,
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"price": 26.99,
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"customer_id": 0,
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"items": [
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],
+				&nbsp;&nbsp;&nbsp;&nbsp;}
+				&nbsp;&nbsp;],
+		</code>
+	</p>
+	<p>
+		But wait &ndash; it can be made <em>even simpler!</em> Look now:
+	</p>
+	<p class="code-block">
+		<code class="json">
+				&nbsp;&nbsp;orders [
+				&nbsp;&nbsp;&nbsp;&nbsp;{
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;order_id 0
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;price 26.99
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;customer_id 0
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;items [
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]
+				&nbsp;&nbsp;&nbsp;&nbsp;}
+				&nbsp;&nbsp;]
+		</code>
+	</p>
+	<p>
+		Much better, isn't it?
+	</p>
+	<h2>Simplicity meets functionality</h2>
+	<p>
+		The goal of FLOW is simple &ndash; Make JSON easier to write, while also maintaining backwards compatibility with it.
+	</p>
+	<p>
+		As such, FLOW has a few differences from its parent:
+	</p>
+	<ul>
+		<li>
+			Delimiters (<code>:</code>, <code>,</code>) are optional
+		</li>
+		<li>
+			"Identifiers" (Strings composed solely of alphanumeric characters (NOT beginning with a number) and underscore (<code>_</code>)) can be unquoted
+		</li>
+		<li>
+			Native binary data support (via <a href="#encoded-entities">Encoded Entities</a>)
+		</li>
+	</ul>
+	<h2>Additions over JSON</h2>
+	<h3 id="encoded-entities">Encoded Entities</h3>
+	<p>
+		
+	</p>
+</body>
+</html>
